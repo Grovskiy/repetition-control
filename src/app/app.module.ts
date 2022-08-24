@@ -6,9 +6,19 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import { CreateComponent } from './create/create.component';
+import { GoalComponent } from './goal/goal.component';
+import { GoalDaysComponent } from './goal/goal-days/goal-days.component';
+import { GoalAddWeekComponent } from './goal/goal-add-week/goal-add-week.component';
+import { GoalService } from "./goal.service";
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreateComponent,
+    GoalComponent,
+    GoalDaysComponent,
+    GoalAddWeekComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +30,7 @@ import { environment } from '../environments/environment';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [GoalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

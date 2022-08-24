@@ -1,0 +1,56 @@
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  &__item {
+    position: relative;
+    width: 40px;
+    margin: 0 3px 8px;
+    text-align: center;
+    font-size: 14px;
+
+    button {
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 40px;
+
+      opacity: 0;
+      z-index: 5;
+    }
+  }
+  &__number {
+    color: #9F9F9F;
+  }
+  &__date {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+  &__checkbox {
+    margin-top: 3px;
+  }
+}
+
+.status {
+  width: 22px;
+  height: 22px;
+  padding: 5px;
+  margin: 4px auto 2px;
+  border: 1px solid #cbcbcb96;
+  border-radius: 50%;
+
+  &.active {
+    box-shadow: 0 3px 13px 2px rgb(119 253 100 / 46%);
+  }
+  &.fail {
+    content: url('/assets/images/close-button.png');
+  }
+  &.done {
+    content: url('/assets/images/done.png');
+  }
+  &.hammock {
+    content: url('/assets/images/hammock.png');
+  }
+}
+

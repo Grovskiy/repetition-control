@@ -1,0 +1,62 @@
+.goal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #F9F0F0;
+  border-bottom: 1px dotted #4f4f4f;
+
+  &__name {
+    margin-bottom: 5px;
+    color: #F9F0F0;
+    font-size: 14px;
+    font-weight: 200;
+  }
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  &__list {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  &__day {
+    width: 20px;
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

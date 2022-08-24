@@ -1,0 +1,43 @@
+<div class="goal">
+  <div class="goal__left">
+    <div *ngIf="!isChangeName" class="goal__name">{{goal.text}}</div>
+    <div *ngIf="isChangeName" class="goal-name">
+      <input
+        class="goal-name__input"
+        type="text"
+        placeholder="Add goal"
+        #textInput
+        [value]="goal.text"
+        (keyup.enter)="changeName(goal.id, textInput.value); toggleIsChangeName()"
+      />
+      <button
+        class="goal-name__btn"
+        (click)="changeName(goal.id, textInput.value); toggleIsChangeName()"
+      >
+        ok
+      </button>
+    </div>
+    <div class="goal__buttons">
+<!--      <button *ngIf="lastWeeks.weekEnd" (click)="addWeek()">+</button>-->
+<!--      <button (click)="addWeek(goal.id)">+</button>-->
+      <button (click)="isVisibleAddWeek = !isVisibleAddWeek">+</button>
+      <button (click)="toggleIsChangeName()">Edit</button>
+      <button (click)="removeGoal(goal.id)">x</button>
+    </div>
+    <div *ngIf="isVisibleAddWeek" class="goal__add-week">
+      <app-goal-add-week
+        [goalId]="goal.id"
+      ></app-goal-add-week>
+    </div>
+  </div>
+
+  <div class="goal__weeks">
+    <app-goal-days
+      [goalName]="goal.text"
+      [days]="goal.days"
+      [goalId]="goal.id"
+    >
+    </app-goal-days>
+  </div>
+
+</div>

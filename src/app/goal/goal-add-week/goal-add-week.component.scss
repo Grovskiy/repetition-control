@@ -1,0 +1,14 @@
+.add-week {
+  margin-top: 10px;
+  &__chosen {
+    margin-top: 4px;
+    text-align: center;
+    font-size: 12px;
+  }
+  &__row {
+    display: flex;
+  }
+  &__col {
+    padding: 0 4px;
+  }
+}

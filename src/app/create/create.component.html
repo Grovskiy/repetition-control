@@ -1,0 +1,15 @@
+<div class="create">
+  <div class="create__row">
+    <input
+      class="create__input"
+      type="text"
+      placeholder="Add goal"
+      #textInput
+      (keyup.enter)="addGoal(textInput.value, chosenDay); textInput.value = ''"
+    />
+    <button class="create__btn" (click)="addGoal(textInput.value, chosenDay); textInput.value = ''">Add goal +</button>
+  </div>
+  <div class="create__date">
+    <input type="date" #dateInput (change)="setDate(dateInput.value)">
+  </div>
+</div>

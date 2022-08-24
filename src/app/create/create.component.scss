@@ -1,0 +1,39 @@
+.create {
+  padding: 16px 12px;
+  background: #232529;
+  border-radius: 12px;
+
+  &__input {
+    width: 100%;
+    height: 28px;
+    padding: 4px 121px 4px 11px;
+    background: linear-gradient(90deg, #15171E 53%, #1D3223 73%);
+    color: #9F9F9F;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__row {
+    position: relative;
+  }
+  &__btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 28px;
+    width: 110px;
+    padding: 6px 15px;
+    color: #F9F0F0;
+    background: #009764;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+  }
+  &__date {
+    margin-top: 10px;
+    text-align: center;
+  }
+}

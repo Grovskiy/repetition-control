@@ -1,0 +1,35 @@
+<div class="days">
+
+  <div *ngFor="let item of days; let i = index" class="days__item">
+    <div class="days__number">{{ item.day }}</div>
+    <div class="days__date">{{ formattedDateWillDo(item.dateWillDo) }}</div>
+    <div
+      [class.active]="isMatchCurrentDay(item.dateWillDo)"
+      [class.fail]="isMissedDay(item.dateWillDo) && !item.status"
+      class="days__checkbox"
+    >
+      <button *ngIf="item.status === statusDayEmpty"
+              (click)="item.status = statusDayHammock; updateGoals();">
+        {{item.status}}
+      </button>
+      <button *ngIf="item.status === statusDayHammock"
+              (click)="item.status = statusDayDone; updateGoals();">
+        {{item.status}}
+      </button>
+      <button *ngIf="item.status === statusDayDone"
+              (click)="item.status = statusDayEmpty; updateGoals();">
+        {{item.status}}
+      </button>
+
+      <div
+        [class.active]="isMatchCurrentDay(item.dateWillDo)"
+        [class.fail]="isMissedDay(item.dateWillDo) && !item.status"
+        [class.done]="item.status === statusDayDone"
+        [class.hammock]="item.status === statusDayHammock"
+        class="status"
+      >
+      </div>
+    </div>
+  </div>
+  <button class="days__remove" (click)="removeGoalLastWeek()">x</button>
+</div>

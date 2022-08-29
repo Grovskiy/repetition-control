@@ -1,0 +1,13 @@
+<div class="main">
+  <h1>Your Tracker</h1>
+  <h2>Present day {{ presentDay }}</h2>
+
+  <div class="goals">
+    <app-goal
+      *ngFor="let item of items"
+      [goal]="item"
+    ></app-goal>
+  </div>
+
+  <app-create></app-create>
+</div>

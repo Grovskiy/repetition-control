@@ -1,0 +1,19 @@
+<div class="add-week">
+  <div class="add-week__row">
+    <div class="add-week__col">
+      <input type="date" #dateInput (change)="setDateAddWeek(dateInput.value)">
+    </div>
+    <div class="add-week__col">
+      <button (click)="setToday()">Today</button>
+    </div>
+    <div class="add-week__col">
+      <button (click)="setTomorrow()">Tomorrow</button>
+    </div>
+  </div>
+  <div class="add-week__chosen">
+    Chosen date:
+    <span *ngIf="startWeek">{{formattedDateWillDo(startWeek)}} </span>
+    <span *ngIf="!startWeek">Select date </span>
+    <button [disabled]="!startWeek || !isNiceDate" (click)="addWeekSelectDay()">Ok</button>
+  </div>
+</div>

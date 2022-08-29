@@ -42,4 +42,6 @@ testem.log
 Thumbs.db
 .firebaserc
 firebase.json
-.firebase/hosting.ZGlzdC90cmFja2VyLWdvYWxz.cache
+.firebase/*
+.idea/*
+dist/*

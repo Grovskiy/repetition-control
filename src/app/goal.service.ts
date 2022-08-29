@@ -68,6 +68,7 @@ export class GoalService {
     const foundIndex = this.goals.findIndex(x => x.id == id);
     const days = this.goals[foundIndex].days;
     this.goals[foundIndex].days.splice(days.length - 7, 7);
+    this.updateGoals();
   }
 
   changeName(id: number, name: string) {

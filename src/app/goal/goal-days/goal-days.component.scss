@@ -30,6 +30,16 @@
   &__checkbox {
     margin-top: 3px;
   }
+  &__remove {
+    padding: 2px;
+    margin: 10px 0 0;
+    color: #F9F0F0;
+    background: #009764;
+    font-size: 10px;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+  }
 }
 
 .status {

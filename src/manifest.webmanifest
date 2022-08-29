@@ -1,8 +1,8 @@
 {
-  "name": "tracker-goals",
-  "short_name": "tracker-goals",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Repetition control",
+  "short_name": "RepttonCntrl",
+  "theme_color": "#000",
+  "background_color": "#000",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

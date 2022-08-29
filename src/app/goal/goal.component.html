@@ -17,17 +17,15 @@
         ok
       </button>
     </div>
-    <div class="goal__buttons">
-<!--      <button *ngIf="lastWeeks.weekEnd" (click)="addWeek()">+</button>-->
-<!--      <button (click)="addWeek(goal.id)">+</button>-->
-      <button (click)="isVisibleAddWeek = !isVisibleAddWeek">+</button>
-      <button (click)="toggleIsChangeName()">Edit</button>
-      <button (click)="removeGoal(goal.id)">x</button>
+    <div class="goal__hidden">
+      <button (click)="isVisibleAddWeek = !isVisibleAddWeek">/</button>
     </div>
-    <div *ngIf="isVisibleAddWeek" class="goal__add-week">
+    <div *ngIf="isVisibleAddWeek" class="goal__modal">
       <app-goal-add-week
         [goalId]="goal.id"
       ></app-goal-add-week>
+      <button (click)="toggleIsChangeName()">Edit</button>
+      <button (click)="removeGoal(goal.id)">x</button>
     </div>
   </div>
 

@@ -1,0 +1,25 @@
+<div class="calendar">
+  <div class="calendar__title">{{ realNameMonth }}</div>
+  <div class="calendar__head">
+    <span class="calendar__name">Mon</span
+    ><span class="calendar__name">Tue</span
+    ><span class="calendar__name">Wed</span
+    ><span class="calendar__name">Thu</span
+    ><span class="calendar__name">Fri</span
+    ><span class="calendar__name weekend">Sat</span
+    ><span class="calendar__name weekend">Sun</span>
+  </div>
+  <div class="calendar__table">
+    <div
+      *ngFor="let item of fakeDays; let i = index"
+      class="calendar__cell"
+    ></div>
+    <div
+      *ngFor="let item of realDays; let i = index"
+      class="calendar__cell"
+      [class.weekend]="hasWeekend(item)"
+    >
+      {{ i + 1 }}
+    </div>
+  </div>
+</div>

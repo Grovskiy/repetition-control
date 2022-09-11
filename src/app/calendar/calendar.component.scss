@@ -1,0 +1,40 @@
+.calendar {
+  padding: 5px 15px 15px;
+  margin-bottom: 20px;
+  background: linear-gradient(131.55deg, #232529 1.03%, #101412 100.35%);
+  border-radius: 12px;
+
+  &__head {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 5px;
+    justify-items: center;
+    margin-bottom: 7px;
+  }
+  &__table {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 5px;
+    row-gap: 5px;
+    justify-items: center;
+  }
+  &__title {
+    margin: 10px 0 15px;
+    text-align: center;
+  }
+  &__cell,
+  &__name,
+  &__title {
+    color: #fff;
+  }
+  &__name {
+    &.weekend {
+      color: #ffbaba;
+    }
+  }
+  &__cell {
+    &.weekend {
+      color: #ffbaba;
+    }
+  }
+}

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import { CalendarComponent } from './calendar/calendar.component';
 import { CreateComponent } from './create/create.component';
 import { GoalComponent } from './goal/goal.component';
 import { GoalDaysComponent } from './goal/goal-days/goal-days.component';
@@ -18,7 +19,8 @@ import { GoalService } from "./goal.service";
     CreateComponent,
     GoalComponent,
     GoalDaysComponent,
-    GoalAddWeekComponent
+    GoalAddWeekComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

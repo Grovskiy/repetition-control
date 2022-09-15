@@ -10,9 +10,16 @@ export class CalendarComponent {
   realNameMonth:string = '';
   fakeDays:any = [];
   realDays:any = [];
+  waitingDays:any = [1663016400000, 1663189200000, 1663362000000];
+  doneDays:any = [1663189200000];
+  isSettingMode:boolean = false;
 
   ngOnInit(){
     this._createArrayMonth();
+  }
+
+  setSettingMode(state:boolean) {
+    this.isSettingMode = state;
   }
 
   _getLastDayOfMonth(year: any, month: any) {
@@ -69,6 +76,32 @@ export class CalendarComponent {
   hasWeekend(timestamp:any) {
    const d = new Date(timestamp).getDay();
    return d == 6 || d == 0;
+  }
+
+  hasWaitingDays(date:any) {
+    return this.waitingDays.includes(date);
+  }
+
+  hasDoneDay(date:any) {
+    return this.doneDays.includes(date);
+  }
+
+  addDoneDay(date:any) {
+    console.log('addDoneDay', date);    
+    this.doneDays.push(date);
+  }
+
+  removeDoneDay(date:number) {
+    console.log('removeDoneDay', date);  
+    this.doneDays = this.doneDays.filter((x:number) => x !== date)
+  }
+
+  addWaitingDay(date:any) {
+    this.waitingDays.push(date);
+  }
+
+  removeWaitingDay(date:number) {
+    this.waitingDays = this.waitingDays.filter((x:number) => x !== date)
   }
 
 }

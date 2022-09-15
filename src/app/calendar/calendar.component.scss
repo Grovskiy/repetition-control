@@ -38,3 +38,25 @@
     }
   }
 }
+.number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+}
+button {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  text-align: center;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  &.waiting {
+    background: #f2873e;
+  }
+  &.done {
+    background: green;
+  }
+}

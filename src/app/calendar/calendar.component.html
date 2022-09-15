@@ -1,5 +1,8 @@
 <div class="calendar">
-  <div class="calendar__title">{{ realNameMonth }}</div>
+  <div class="calendar__title">
+    {{ realNameMonth }}
+    <button (click)="setSettingMode(!isSettingMode)">/</button>
+  </div>
   <div class="calendar__head">
     <span class="calendar__name">Mon</span
     ><span class="calendar__name">Tue</span
@@ -19,7 +22,45 @@
       class="calendar__cell"
       [class.weekend]="hasWeekend(item)"
     >
-      {{ i + 1 }}
+      <div
+        *ngIf="
+          isSettingMode;
+          then addWaitingButtonBlock;
+          else notAddWaitingButtonBlock
+        "
+      ></div>
+      <ng-template #addWaitingButtonBlock>
+        <button
+          (click)="
+            hasWaitingDays(item) ? removeWaitingDay(item) : addWaitingDay(item)
+          "
+          [class.waiting]="hasWaitingDays(item)"
+        >
+          {{ i + 1 }}
+        </button>
+      </ng-template>
+
+      <ng-template #notAddWaitingButtonBlock>
+        <div
+          *ngIf="hasWaitingDays(item); then waitingsDay; else notWaitingsDay"
+        ></div>
+
+        <ng-template #waitingsDay>
+          <button
+            (click)="hasDoneDay(item) ? removeDoneDay(item) : addDoneDay(item)"
+            [class.done]="hasDoneDay(item)"
+            [class.waiting]="hasWaitingDays(item)"
+          >
+            {{ i + 1 }}
+          </button>
+        </ng-template>
+
+        <ng-template #notWaitingsDay>
+          <div class="number">
+            {{ i + 1 }}
+          </div>
+        </ng-template>
+      </ng-template>
     </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { arrayMonth } from '../helper/arrayMonth';
+import { MoonsService } from './../services/moons.service';
 
 @Component({
   selector: 'app-calendar',
@@ -10,12 +11,22 @@ export class CalendarComponent {
   realNameMonth:string = '';
   fakeDays:any = [];
   realDays:any = [];
-  waitingDays:any = [1663016400000, 1663189200000, 1663362000000];
-  doneDays:any = [1663189200000];
-  isSettingMode:boolean = false;
+  waitingDays:any = [];
+  doneDays:any = [];
+  moons:any = this.moonsService.getMoons
+
+  @Input() isSettingMode = false; 
+  @Output() addWaitingDaysEvent = new EventEmitter<string>();
+  @Output() removeWaitingDaysEvent = new EventEmitter<number>();
+
+  constructor(private moonsService: MoonsService){}
 
   ngOnInit(){
     this._createArrayMonth();
+  }
+  
+  addNewItem(value: string) {
+    this.addWaitingDaysEvent.emit(value);
   }
 
   setSettingMode(state:boolean) {
@@ -97,10 +108,12 @@ export class CalendarComponent {
   }
 
   addWaitingDay(date:any) {
+    this.addWaitingDaysEvent.emit(date);
     this.waitingDays.push(date);
   }
 
   removeWaitingDay(date:number) {
+    this.removeWaitingDaysEvent.emit(date);
     this.waitingDays = this.waitingDays.filter((x:number) => x !== date)
   }
 

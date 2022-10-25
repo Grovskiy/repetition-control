@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {dayOfGoal} from "../../goals.interface";
 import {getDayMonth} from "../../helper/getDayMonth";
 import {GoalService} from "../../goal.service";
+import {TWENTY_FOUR_HOURS} from "../../helper/TWENTY_FOUR_HOURS";
 
 @Component({
   selector: 'app-goal-add-week',
@@ -36,7 +37,7 @@ export class GoalAddWeekComponent implements OnInit {
 
   setDateAddWeek(date:any) {
     const d2 = new Date(date);
-    d2.setHours(0,0,0,0);
+    d2.setHours(12,0,0,0);
     this.startWeek = d2;
   }
 
@@ -45,9 +46,7 @@ export class GoalAddWeekComponent implements OnInit {
   }
 
   setTomorrow() {
-    const nextDay = new Date(this.currentDay);
-    nextDay.setDate(this.currentDay.getDate() + 1);
-    this.startWeek = nextDay;
+    this.startWeek = this.currentDay + TWENTY_FOUR_HOURS;
   }
 
   formattedDateWillDo(value:any) {
@@ -59,14 +58,14 @@ export class GoalAddWeekComponent implements OnInit {
     this.startWeek = '';
   }
 
-  isMatchCurrentDay(value: string): boolean {
-    const dayFromArray = new Date(value);
-    return dayFromArray.getTime() === this.currentDay.getTime();
-  }
-
-  isMissedDay(value: string): boolean {
-    const dayFromArray = new Date(value);
-    return dayFromArray < this.currentDay;
-  }
+  // isMatchCurrentDay(value: string): boolean {
+  //   const dayFromArray = new Date(value);
+  //   return dayFromArray.getTime() === this.currentDay.getTime();
+  // }
+  //
+  // isMissedDay(value: string): boolean {
+  //   const dayFromArray = new Date(value);
+  //   return dayFromArray < this.currentDay;
+  // }
 
 }

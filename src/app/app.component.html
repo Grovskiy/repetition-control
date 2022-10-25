@@ -1,6 +1,12 @@
 <div class="main">
-  <h1 class="title">Your Tracker</h1>
+  <h1 class="title">Your Tracker
+    <button (click)="toggleVisibleEditButton()" class="btn-edit">Edit</button>
+  </h1>
   <h2 class="sub-title">Present day {{ presentDay }}</h2>
+
+<!--  <app-moon-save></app-moon-save>-->
+
+<!--  <app-calendar></app-calendar>-->
 
   <div class="goals">
     <app-goal

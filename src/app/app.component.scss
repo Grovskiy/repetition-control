@@ -88,6 +88,8 @@ meter {
 }
 
 .main {
+  max-width: 360px;
+  margin: 0 auto;
   padding: 10px 15px;
 }
 
@@ -109,6 +111,19 @@ meter {
 .goals {
   padding: 5px 15px 15px;
   margin-bottom: 20px;
-  background: linear-gradient(131.55deg, #232529 1.03%, #101412 100.35%);
+  //background: linear-gradient(131deg, rgba(35, 37, 41, 0.63) 1%, rgba(16, 20, 18, 0.76) 100%);
+  background: linear-gradient(131deg, rgba(35, 37, 41, 0.63) 1%, rgba(16, 20, 18, 0.76) 100%);
   border-radius: 12px;
+}
+
+.btn-edit {
+  position: relative;
+  top: -3px;
+  padding: 3px 5px;
+  color: #F9F0F0;
+  background: #009764;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  font-size: 10px;
 }

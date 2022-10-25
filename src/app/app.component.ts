@@ -20,4 +20,8 @@ export class AppComponent {
   get items() {
     return this.goalService.getGoals;
   }
+
+  toggleVisibleEditButton() {
+    this.goalService.toggleVisibleEditButton();
+  }
 }

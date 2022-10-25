@@ -18,12 +18,12 @@ export class GoalComponent {
 
   constructor(private goalService: GoalService){}
 
-  removeGoal(id: number) {
-    this.goalService.removeGoal(id);
+  get visibleEditButton() {
+    return this.goalService.getVisibleEditButton;
   }
 
-  addWeek(id: number) {
-    this.goalService.addWeek(id);
+  removeGoal(id: number) {
+    this.goalService.removeGoal(id);
   }
 
   changeName(id: number, name: string) {

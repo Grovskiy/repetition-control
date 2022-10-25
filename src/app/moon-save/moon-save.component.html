@@ -1,0 +1,27 @@
+<button (click)="setVisibility(!isVisible)">Add moon</button>
+
+<div class="content" *ngIf="isVisible">
+  <input
+    type="text"
+    placeholder="Write name"
+    #nameInput
+    (change)="name = nameInput.value"
+  />
+  <div class="img-wrap">
+    <input
+      type="text"
+      placeholder="Find image"
+      #linkInput
+      (change)="link = linkInput.value"
+    />
+    <img *ngIf="link" [src]="link" alt="any img" />
+  </div>
+
+  <app-calendar
+    (addWaitingDaysEvent)="addWaitingDays($event)"
+    (removeWaitingDaysEvent)="removeWaitingDays($event)"
+    [isSettingMode]="true"
+  ></app-calendar>
+
+  <button class="goal-name__btn" (click)="saveMoon()">ok</button>
+</div>

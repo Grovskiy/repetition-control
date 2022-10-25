@@ -1,0 +1,13 @@
+<div>
+  {{ renderNumber }}
+  <div *ngIf="checkWaitingDays(moonOne.waitingDays)" class="row">
+    <img [src]="moonOne.link" alt="*" />
+
+    <div class="name">{{ moonOne.text }}</div>
+  </div>
+  <div *ngIf="checkWaitingDays(moonTwo.waitingDays)" class="row">
+    <img [src]="moonTwo.link" alt="*" />
+
+    <div class="name">{{ moonTwo.text }}</div>
+  </div>
+</div>

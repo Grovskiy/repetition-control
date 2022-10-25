@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { goalsInterface, StatusDay } from "./goals.interface";
+import {TWENTY_FOUR_HOURS} from "./helper/TWENTY_FOUR_HOURS";
 
 
 @Injectable({
@@ -20,9 +21,19 @@ export class GoalService {
     }
   ]
 
-  getCurrentDate():Date {
-    this.currentDate.setHours(0,0,0,0);
-    return this.currentDate;
+  private visibleEditButton:boolean  = false;
+
+  get getVisibleEditButton():boolean {
+    return this.visibleEditButton;
+  }
+
+  toggleVisibleEditButton() {
+    this.visibleEditButton = !this.visibleEditButton;
+  }
+
+  getCurrentDate():number {
+    this.currentDate.setHours(12,0,0,0);
+    return this.currentDate.getTime();
   }
 
   get getGoals():goalsInterface[] {
@@ -81,17 +92,10 @@ export class GoalService {
     const startDays: any[] = [];
 
     for (let i:number = 1; i < 8; i++) {
-
       const tomorrow = chosenDay ? new Date(chosenDay) : new Date();
-      tomorrow.setHours(0,0,0,0);
-
-      if (firstDay) {
-        tomorrow.setUTCDate(tomorrow.getUTCDate() + i - 1);
-        startDays.push({day: i + firstDay, status: StatusDay.Empty, dateWillDo: tomorrow })
-      } else {
-        tomorrow.setUTCDate(tomorrow.getUTCDate() + i - 1);
-        startDays.push({day: i, status: StatusDay.Empty, dateWillDo: tomorrow });
-      }
+      tomorrow.setHours(12,0,0,0);
+      let timestamp = tomorrow.getTime() + (i * TWENTY_FOUR_HOURS) - TWENTY_FOUR_HOURS;
+      startDays.push({day: firstDay ? i + firstDay : i, status: StatusDay.Empty, dateWillDo: timestamp })
     }
 
     return startDays;

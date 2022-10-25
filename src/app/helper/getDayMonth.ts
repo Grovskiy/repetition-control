@@ -1,4 +1,4 @@
-export const getDayMonth = (dateString:Date):string => {
+export const getDayMonth = (dateString: number):string => {
   const date:Date = new Date(dateString);
 
   return `${date.getDate()}/${date.getMonth() + 1}`

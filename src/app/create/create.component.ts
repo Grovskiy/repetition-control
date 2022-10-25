@@ -19,7 +19,7 @@ export class CreateComponent {
 
   setDate(date:any) {
     const d2 = new Date(date);
-    d2.setHours(0,0,0,0);
+    d2.setHours(12,0,0,0);
     this.chosenDay = d2;
   }
 }

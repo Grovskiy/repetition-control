@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import { CalendarComponent } from './calendar/calendar.component';
 import { CreateComponent } from './create/create.component';
 import { GoalComponent } from './goal/goal.component';
 import { GoalDaysComponent } from './goal/goal-days/goal-days.component';
 import { GoalAddWeekComponent } from './goal/goal-add-week/goal-add-week.component';
 import { GoalService } from "./goal.service";
+import { MoonsService } from "./services/moons.service";
+import { MoonSaveComponent } from './moon-save/moon-save.component';
+import { DayMoonComponent } from './day-moon/day-moon.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { GoalService } from "./goal.service";
     CreateComponent,
     GoalComponent,
     GoalDaysComponent,
-    GoalAddWeekComponent
+    GoalAddWeekComponent,
+    CalendarComponent,
+    MoonSaveComponent,
+    DayMoonComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,7 @@ import { GoalService } from "./goal.service";
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [GoalService],
+  providers: [GoalService, MoonsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

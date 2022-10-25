@@ -9,6 +9,18 @@
     text-align: center;
     font-size: 14px;
 
+    @for $i from 1 through 7 {
+      &.item-#{$i} {
+        grid-column-start: $i;
+        grid-column-end: $i;
+      }
+    }
+    $venus: #e6e6e696;
+    @for $i from 0 through 6 {
+      &.color-#{$i} .status {
+        border-color: scale-color($venus, $blackness: $i * 15%) ;
+      }
+    }
     button {
       position: absolute;
       left: 0;
@@ -23,19 +35,33 @@
   &__number {
     color: #9F9F9F;
   }
+  &__day {
+    margin-bottom: 2px;
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.weekend {
+      color: #ff8d51;
+    }
+  }
   &__date {
     font-size: 9px;
     letter-spacing: 1px;
+
+    &.weekend {
+      color: #ff8d51;
+    }
   }
   &__checkbox {
     margin-top: 3px;
   }
   &__remove {
-    padding: 2px;
+    padding: 3px 5px;
     margin: 10px 0 0;
     color: #F9F0F0;
-    background: #009764;
-    font-size: 10px;
+    background: #ff1504;
+    font-size: 9px;
     outline: none;
     border: none;
     border-radius: 6px;
@@ -61,6 +87,31 @@
   }
   &.hammock {
     content: url('/assets/images/hammock.png');
+  }
+}
+
+.count-done {
+  margin: 0 0 9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__text {
+    margin-right: 10px;
+    line-height: 15px;
+    font-size: 14px;
+    &:before {
+      content: '-';
+      margin: 0 3px;
+    }
+  }
+  button {
+    padding: 3px 5px;
+    color: #F9F0F0;
+    background: #009764;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    font-size: 10px;
   }
 }
 

@@ -175,7 +175,8 @@ textarea {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -185,7 +186,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
@@ -350,8 +352,7 @@ template {
 }
 
 body {
-  background: #000;
-  font-family: 'Nunito', sans-serif;
+  background: #3b2c5d;
+  font-family: "Nunito", sans-serif;
   letter-spacing: 1px;
 }
-

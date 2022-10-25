@@ -1,10 +1,9 @@
 .calendar {
-  max-width: 280px;
   padding: 5px 15px 15px;
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
-  background: linear-gradient(131.55deg, #232529 1.03%, #101412 100.35%);
+  background: linear-gradient(131deg, rgba(35, 37, 41, 0.63) 1%, rgba(16, 20, 18, 0.76) 100%);
   border-radius: 12px;
 
   &__head {

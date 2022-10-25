@@ -37,6 +37,8 @@
     top: 10px;
     right: 0;
     button {
+      font-size: 9px;
+      padding: 3px 5px;
       color: #F9F0F0;
       background: #009764;
       outline: none;
@@ -53,6 +55,25 @@
     background: #4c4c4c;
     z-index: 20;
     border-radius: 10px;
+  }
+}
+
+.edit-btn {
+  margin-bottom: 10px;
+  margin-top: -8px;
+
+  button {
+    font-size: 9px;
+    margin: 0 2px;
+    padding: 3px 5px;
+    color: #F9F0F0;
+    background: #009764;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+  }
+  .remove {
+    background: #ff1504;
   }
 }
 

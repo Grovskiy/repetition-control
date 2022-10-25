@@ -1,8 +1,18 @@
+<div class="count-done">
+  <img src="/assets/images/done.png" width="15" height="15" alt="done">
+  <span class="count-done__text">{{ countDone }}</span>
+  <button (click)="toggleShowDays()">
+    <span *ngIf="isShowAllDays">Last days -</span>
+    <span *ngIf="!isShowAllDays">All days +</span>
+  </button>
+</div>
 <div class="days">
-
-  <div *ngFor="let item of days; let i = index" class="days__item">
-    <div class="days__number">{{ item.day }}</div>
-    <div class="days__date">{{ formattedDateWillDo(item.dateWillDo) }}</div>
+  <div *ngFor="let item of formattedDays; let i = index"
+       [className]="'days__item item-' + numberOfWeek(item.dateWillDo) + ' color-' + item.day % 7">
+    <div class="days__day"
+         [class.weekend]="hasWeekend(item.dateWillDo)">{{ dayOfWeek(item.dateWillDo) }}</div>
+    <div class="days__date"
+         [class.weekend]="hasWeekend(item.dateWillDo)">{{ formattedDateWillDo(item.dateWillDo) }}</div>
     <div
       [class.active]="isMatchCurrentDay(item.dateWillDo)"
       [class.fail]="isMissedDay(item.dateWillDo) && !item.status"
@@ -31,5 +41,5 @@
       </div>
     </div>
   </div>
-  <button class="days__remove" (click)="removeGoalLastWeek()">x</button>
 </div>
+<button class="days__remove" *ngIf="visibleEditButton" (click)="removeGoalLastWeek()">Remove last week</button>
